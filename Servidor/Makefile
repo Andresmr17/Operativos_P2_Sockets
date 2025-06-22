@@ -1,10 +1,11 @@
 CC = gcc
-CFLAGS = -Wall -O2 -lsodium
+CFLAGS = -Wall -O2
+LDFLAGS = -lsodium -L../Driver-Biblioteca -luart
 
 all: servidor
 
-servidor: main.c servidor.c encrypt.c uart_control.c
-	$(CC) main.c servidor.c encrypt.c uart_control.c -o servidor $(CFLAGS)
+servidor: main.c servidor.c encrypt.c
+	$(CC) main.c servidor.c encrypt.c -o servidor $(CFLAGS) $(LDFLAGS)
 
 clean:
 	rm -f servidor

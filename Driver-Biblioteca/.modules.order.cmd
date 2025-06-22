@@ -1,0 +1,1 @@
+savedcmd_/home/andres/Documentos/GitHub/Operativos_P2_Sockets/Driver-Biblioteca/modules.order := {   echo /home/andres/Documentos/GitHub/Operativos_P2_Sockets/Driver-Biblioteca/usb_driver_arduino.o; :; } > /home/andres/Documentos/GitHub/Operativos_P2_Sockets/Driver-Biblioteca/modules.order

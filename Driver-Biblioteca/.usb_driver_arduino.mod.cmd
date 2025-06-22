@@ -1,0 +1,1 @@
+savedcmd_/home/andres/Documentos/GitHub/Operativos_P2_Sockets/Driver-Biblioteca/usb_driver_arduino.mod := printf '%s\n'   usb_driver_arduino.o | awk '!x[$$0]++ { print("/home/andres/Documentos/GitHub/Operativos_P2_Sockets/Driver-Biblioteca/"$$0) }' > /home/andres/Documentos/GitHub/Operativos_P2_Sockets/Driver-Biblioteca/usb_driver_arduino.mod

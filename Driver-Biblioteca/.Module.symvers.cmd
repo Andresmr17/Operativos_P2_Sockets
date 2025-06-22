@@ -1,0 +1,1 @@
+savedcmd_/home/andres/Documentos/GitHub/Operativos_P2_Sockets/Driver-Biblioteca/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/andres/Documentos/GitHub/Operativos_P2_Sockets/Driver-Biblioteca/Module.symvers -T /home/andres/Documentos/GitHub/Operativos_P2_Sockets/Driver-Biblioteca/modules.order -i Module.symvers -e 
