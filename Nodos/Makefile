@@ -1,10 +1,17 @@
 CC = gcc
-CFLAGS = -Wall -O2 -lsodium
+CFLAGS = -Wall -O2
+LDFLAGS = -lsodium
+
+OBJS = main.o nodo.o ../common.o ../encrypt.o
 
 all: nodo
 
-nodo: main.c nodo.c encrypt.c
-	$(CC) main.c nodo.c encrypt.c -o nodo $(CFLAGS)
+nodo: $(OBJS)
+	$(CC) -o $@ $^ $(LDFLAGS)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f nodo
+	rm -f *.o nodo
+

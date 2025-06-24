@@ -14,7 +14,7 @@ void derive_symmetric_key(unsigned char *symmetric_key,
 }
 
 int encrypt_message(const unsigned char *key, const unsigned char *plaintext,
-                    int plaintext_len, unsigned char *iv, unsigned char *tag,
+                    size_t plaintext_len, unsigned char *iv, unsigned char *tag,
                     unsigned char *ciphertext, int *ciphertext_len) {
     randombytes_buf(iv, 12);
 

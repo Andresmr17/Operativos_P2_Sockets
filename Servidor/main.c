@@ -1,6 +1,6 @@
 // Servidor/main.c
 #include <stdio.h>
-#include "encrypt.h"
+#include "../encrypt.h"
 
 extern void run_server(const unsigned char *sk, const unsigned char *pk);
 

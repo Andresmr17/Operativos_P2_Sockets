@@ -2,10 +2,15 @@ CC = gcc
 CFLAGS = -Wall -O2
 LDFLAGS = -lsodium -L../Driver-Biblioteca -luart
 
+OBJS = main.o servidor.o ../common.o uart_control.o
+
 all: servidor
 
-servidor: main.c servidor.c encrypt.c
-	$(CC) main.c servidor.c encrypt.c -o servidor $(CFLAGS) $(LDFLAGS)
+servidor: $(OBJS)
+	$(CC) -o $@ $^ $(LDFLAGS)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f servidor
+	rm -f *.o servidor

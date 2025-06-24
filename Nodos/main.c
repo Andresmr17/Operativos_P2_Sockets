@@ -1,7 +1,7 @@
 // Nodos/main.c
 #include <stdio.h>
 #include <stdlib.h>
-#include "encrypt.h"
+#include "../encrypt.h"
 
 extern void run_node(int port, const unsigned char *sk, const unsigned char *pk);
 

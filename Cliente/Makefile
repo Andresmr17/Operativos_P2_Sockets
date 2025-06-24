@@ -1,10 +1,16 @@
 CC = gcc
-CFLAGS = -Wall -O2 -lsodium
+CFLAGS = -Wall -O2
+LDFLAGS = -lsodium
+
+OBJS = main.o cliente.o ../encrypt.o ../common.o
 
 all: cliente
 
-cliente: main.c cliente.c encrypt.c
-	$(CC) main.c cliente.c encrypt.c -o cliente $(CFLAGS)
+cliente: $(OBJS)
+	$(CC) -o $@ $^ $(LDFLAGS)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f cliente
+	rm -f *.o cliente

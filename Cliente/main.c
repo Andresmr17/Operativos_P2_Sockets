@@ -1,6 +1,6 @@
 // Cliente/main.c
 #include <stdio.h>
-#include "encrypt.h"
+#include "../encrypt.h"
 
 extern void run_client(const char *filename, const unsigned char *sk, const unsigned char *pk);
 
