@@ -8,10 +8,9 @@
 #include "../encrypt.h"
 #include "../common.h"
 
-#define MAX_CIPHER 131072
-#define MAX_TEXT 131072
+#define MAX_TEXT 1048576 
+#define MAX_CIPHER 1049600
 #define MAX_WORD 64
-
 
 void agregar_palabra(Word **lista, int *size, int *cap, const char *palabra) {
     for (int i = 0; i < *size; i++) {
@@ -35,7 +34,7 @@ void agregar_palabra(Word **lista, int *size, int *cap, const char *palabra) {
 }
 
 void procesar_texto(const char *texto, Word **lista, int *total) {
-    int cap = 100;
+    int cap = 1000;
     *total = 0;
     *lista = malloc(cap * sizeof(Word));
     if (!*lista) {
@@ -71,7 +70,7 @@ void run_node(int port, const unsigned char *alicesk, const unsigned char *bobpk
     int cipher_len, plain_len;
     unsigned char iv[12], tag[16];
     unsigned char ciphertext[MAX_CIPHER];
-    unsigned char plaintext[MAX_TEXT];
+    unsigned char plaintext[MAX_TEXT + 1];
 
     recv_all(client, &cipher_len, sizeof(int));
     recv_all(client, &plain_len, sizeof(int));

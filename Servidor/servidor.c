@@ -10,7 +10,7 @@
 
 
 #define NODOS 3
-#define MAX_WORD 64
+#define MAX_WORD 30
 
 
 void agregar_global(Word **global, int *size, int *cap, const char *palabra, int conteo) {
