@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <errno.h>
 #include <string.h>
+#include <stdint.h>  // Para tipos uint8_t, uint16_t
 
 static int fd = -1;
 
@@ -35,4 +36,19 @@ int uart_close() {
         fd = -1;
     }
     return 0;
+}
+int uart_read() {
+    if (uart_open() < 0) return -1;
+
+    int valor;
+    ssize_t leido = read(fd, &valor, sizeof(valor));
+    if (leido < 0) {
+        perror("[uart_interface] Error al leer desde el dispositivo");
+        return -1;
+    } else if (leido != sizeof(valor)) {
+        fprintf(stderr, "[uart_interface] Lectura incompleta: %ld bytes\n", leido);
+        return -1;
+    }
+
+    return valor;
 }

@@ -6,5 +6,6 @@ void uart_write_char(char c);
 void uart_write_string(const char *str);
 void uart_signal_done();
 void uart_close();
+int uart_read();
 
 #endif
