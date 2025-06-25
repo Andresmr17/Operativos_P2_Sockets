@@ -28,7 +28,7 @@ RoboticTEC es un simulador de sistema distribuido desarrollado en C que simula p
 
 ## 📖 Documentación (Wiki)
 
-Para ver el detalle técnico de cada módulo, consulta la [Wiki del Proyecto](https://github.com/<USUARIO>/<REPOSITORIO>/wiki):
+Para ver el detalle técnico de cada módulo, consulta la [Wiki del Proyecto]([https://github.com/<USUARIO>/<REPOSITORIO>/wiki](https://github.com/Andresmr17/Operativos_P2_Sockets/wiki)):
 
 1. 📘 **[Introducción](Introduccion)**  
 2. 🧠 **[Fundamento teórico](Introduccion)**  
