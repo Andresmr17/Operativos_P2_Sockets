@@ -112,11 +112,10 @@ void run_server(const unsigned char *alicesk, const unsigned char *bobpk) {
     printf("[Servidor] Palabra más frecuente: '%s' (%d veces)\n", resultado, max);
 
     uart_control_init();
-    uart_control_write_string(resultado);
-    uart_control_write_char(' ');
-    char count_str[10];
-    sprintf(count_str, "%d", max);
-    uart_control_write_string(count_str);
+    for (size_t i = 0; i < strlen(resultado); i++) {
+        sleep(8);
+        uart_control_write_char(resultado[i]);
+    }
     uart_control_signal_done();
     uart_control_close();
 

@@ -39,3 +39,22 @@ void uart_control_close() {
         close(fd);
     }
 }
+
+int uart_control_read() {
+    if (fd < 0) {
+        fprintf(stderr, "[uart_control] Dispositivo no abierto\n");
+        return -1;
+    }
+
+    int valor;
+    ssize_t leido = read(fd, &valor, sizeof(valor));
+    if (leido < 0) {
+        perror("[uart_control] Error al leer desde el dispositivo");
+        return -1;
+    } else if (leido != sizeof(valor)) {
+        fprintf(stderr, "[uart_control] Lectura incompleta: %ld bytes\n", leido);
+        return -1;
+    }
+
+    return valor;
+}

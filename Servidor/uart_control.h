@@ -7,5 +7,5 @@ void uart_control_write_char(char c);
 void uart_control_write_string(const char *str);
 void uart_control_signal_done();
 void uart_control_close();
-
+int uart_control_read();
 #endif
