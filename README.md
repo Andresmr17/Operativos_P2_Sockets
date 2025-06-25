@@ -7,7 +7,7 @@
 
 ## Descripción
 
-RoboticTEC es un simulador de sistema distribuido desarrollado en C que simula procesamiento paralelo para identificar la palabra más repetida en un archivo de texto y, a continuación, controla físicamente una mano robótica conectada por USB (Arduino UNO clónico) para “escribir” esa palabra. El proyecto integra:
+RoboticTEC es un sistema distribuido desarrollado en C que simula procesamiento paralelo para identificar la palabra más repetida en un archivo de texto y, a continuación, controla físicamente una mano robótica conectada por USB (Arduino UNO clónico) para “escribir” esa palabra. El proyecto integra:
 
 - Arquitectura cliente-servidor con sockets TCP/IP.  
 - Simulación de procesamiento paralelo mediante tres nodos independientes (workers).  
@@ -28,10 +28,10 @@ RoboticTEC es un simulador de sistema distribuido desarrollado en C que simula p
 
 ## 📖 Documentación (Wiki)
 
-Para ver el detalle técnico de cada módulo, consulta la [Wiki del Proyecto]([https://github.com/<USUARIO>/<REPOSITORIO>/wiki](https://github.com/Andresmr17/Operativos_P2_Sockets/wiki)):
+Para ver el detalle técnico de cada módulo, consulta la [Wiki del Proyecto](https://github.com/Andresmr17/Operativos_P2_Sockets/wiki):
 
 1. 📘 **[Introducción](Introduccion)**  
-2. 🧠 **[Fundamento teórico](Introduccion)**  
+2. 🧠 **[Fundamento teórico](Fundamento-teórico)**  
 3. 🗂️ **[Diseño del sistema](Diseño-del-sistema)**  
 4. 💻 **[Ambiente de desarrollo](Ambiente-de-desarrollo)**  
 5. 🛠️ **[Compilación y ejecución](Compilación-y-ejecución)**  
@@ -42,43 +42,46 @@ Para ver el detalle técnico de cada módulo, consulta la [Wiki del Proyecto]([h
 ## 🚀 Cómo empezar
 
 1. **Clonar el repositorio**  
-    
-        git clone https://github.com/<USUARIO>/<REPOSITORIO>.git  
-        cd <REPOSITORIO>  
+    ```bash
+    git clone https://github.com/Andresmr17/Operativos_P2_Sockets.git
+    cd Operativos_P2_Sockets
+    ```
 
 2. **Instalar dependencias**  
    - Ubuntu 24.04 LTS  
    - gcc (C99+), make, libsodium  
-   - Arduino IDE (para cargar firmware)  
+   - Arduino IDE (para cargar firmware)
 
 3. **Compilar el driver y la biblioteca**  
-    
-        cd Driver-Biblioteca/  
-        make  
-        sudo insmod usb_driver_arduino.ko  
-        sudo chmod 666 /dev/proyecto_arduino_usb  
+    ```bash
+    cd Driver-Biblioteca/
+    make
+    sudo insmod usb_driver_arduino.ko
+    sudo chmod 666 /dev/proyecto_arduino_usb
+    ```
 
 4. **Ejecutar nodos, servidor y cliente**  
    - Nodos (puertos 9001–9003):  
-    
-         cd Nodos/  
-         ./nodo 9001 & ./nodo 9002 & ./nodo 9003 &  
-
+     ```bash
+     cd Nodos/
+     ./nodo 9001 & ./nodo 9002 & ./nodo 9003 &
+     ```  
    - Servidor (puerto 9000):  
-    
-         cd Servidor/  
-         ./servidor &  
-
+     ```bash
+     cd Servidor/
+     ./servidor &
+     ```  
    - Cliente (archivo de entrada):  
-    
-         cd Cliente/  
-         ./cliente ../test_input  
+     ```bash
+     cd Cliente/
+     ./cliente ../test_input
+     ```
 
 5. **Verificar**  
-    
-        netstat -ln | grep ':900'  
-
-   Debes ver `:9000`, `:9001`, `:9002` y `:9003` en estado LISTEN.
+    ```bash
+    netstat -ln | grep ':900'
+    ```
+   Debes ver los puertos `:9000`, `:9001`, `:9002` y `:9003` en estado LISTEN.
 
 ---
 
@@ -89,4 +92,4 @@ Para ver el detalle técnico de cada módulo, consulta la [Wiki del Proyecto]([h
 - **Control de hardware** desde Linux mediante driver y UART.  
 - **Modularidad**: capas separadas de cliente, servidor, nodos, driver y firmware de Arduino.  
 
---- 
+
